@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
     for _, playerTime in pairs(playerTimes) do
       if playerTime[1] == steamID then
         local totalTime = dropTime - playerTime[2]
-        MySQL.Sync.execute("UPDATE player SET playtime=@totalTime WHERE steamhex=@steamID", {['@steamID'] = steamID, ['@totalTime'] = totalTime})
+        MySQL.Sync.execute('UPDATE player SET playtime=@totalTime WHERE steamhex=@steamID', {['@steamID'] = steamID, ['@totalTime'] = totalTime})
       end
     end
   end)
