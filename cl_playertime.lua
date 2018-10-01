@@ -2,6 +2,8 @@ local waitTime = 120000 -- We wait this amount in milliseconds until we check th
 local afkKickTime = 120 -- Time In Seconds for kick
 local SAST, BCSO, LSPD, FIRE, CIV = 5, 4, 3, 2, 1
 local prefix = "~r~All~w~Pro~b~RP~w~.net"
+local discordAppId = ""
+local discordAssetId = ""
 local hasRan = false
 local currTime = afkKickTime
 local currRole = 0
@@ -38,8 +40,8 @@ end
 
 AddEventHandler('playerSpawned', function(spawnInfo)
   if hasRan == true then return end
-	SetDiscordRichPresenceAsset("aprp_beach")
-	SetDiscordAppId("489257647170650139")
+	SetDiscordRichPresenceAsset(discordAssetId)
+	SetDiscordAppId(discordAppId)
   Citizen.Wait(waitTime)
 	hasRan = true
   local modelHash = GetEntityModel(PlayerPedId())
