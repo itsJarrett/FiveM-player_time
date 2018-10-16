@@ -17,13 +17,13 @@ end
 function getRoleInfo(modelHash)
 	local role = 0
 	local roleString = ""
-	if getOutfitCategory() == "SAHP" or getOutfitCategory() == "SASP" then
+	if getOutfitCategory() == "SAHP" or exports.eup_ui:getOutfit() == "SASP" then
 		role = SAST
 		roleString = "San Andreas Highway Patrol"
-	elseif getOutfitCategory() == "LSSD" or getOutfitCategory() == "BCSO" then
+	elseif getOutfitCategory() == "LSSD" or exports.eup_ui:getOutfit() == "BCSO" then
 		role = BCSO
 		roleString = "Blaine County Sheriffs"
-	elseif modelHash == GetHashKey('s_m_y_cop_01') or modelHash == GetHashKey('s_f_y_cop_01') or getOutfitCategory() == "LSPD" then
+	elseif modelHash == GetHashKey('s_m_y_cop_01') or modelHash == GetHashKey('s_f_y_cop_01') or exports.eup_ui:getOutfit() == "LSPD" then
 		role = LSPD
 		roleString = "Los Santos Police Department"
 	elseif modelHash == GetHashKey('aprpfire') or modelHash == GetHashKey('aprpems') then
