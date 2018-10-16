@@ -1,7 +1,7 @@
 local waitTime = 120000 -- We wait this amount in milliseconds until we check their time, (some people like to drop their connection A LOT).
-local afkKickTime = 120 -- Time In Seconds for kick
+local afkKickTime = 900 -- Time In Seconds for kick
 local SAST, BCSO, LSPD, FIRE, CIV = 5, 4, 3, 2, 1
-local prefix = "~r~All~w~Pro~b~RP~w~.net"
+local prefix = "~r~So~b~Cal~w~RP.net"
 local hasRan = false
 local currTime = afkKickTime
 local currRole = 0
@@ -17,13 +17,13 @@ end
 function getRoleInfo(modelHash)
 	local role = 0
 	local roleString = ""
-	if modelHash == GetHashKey('aprpsast') then
+	if getOutfitCategory() == "SAHP" or getOutfitCategory() == "SASP" then
 		role = SAST
-		roleString = "San Andreas State Troopers"
-	elseif modelHash == GetHashKey('aprpbcso') then
+		roleString = "San Andreas Highway Patrol"
+	elseif getOutfitCategory() == "LSSD" or getOutfitCategory() == "BCSO" then
 		role = BCSO
 		roleString = "Blaine County Sheriffs"
-	elseif modelHash == GetHashKey('s_m_y_cop_01') or modelHash == GetHashKey('s_f_y_cop_01') then
+	elseif modelHash == GetHashKey('s_m_y_cop_01') or modelHash == GetHashKey('s_f_y_cop_01') or getOutfitCategory() == "LSPD" then
 		role = LSPD
 		roleString = "Los Santos Police Department"
 	elseif modelHash == GetHashKey('aprpfire') or modelHash == GetHashKey('aprpems') then
@@ -38,8 +38,8 @@ end
 
 AddEventHandler('playerSpawned', function(spawnInfo)
   if hasRan == true then return end
-	SetDiscordRichPresenceAsset("aprp_beach")
-	SetDiscordAppId("489257647170650139")
+	SetDiscordRichPresenceAsset("socalrp")
+	SetDiscordAppId("501591649781022720")
   Citizen.Wait(waitTime)
 	hasRan = true
   local modelHash = GetEntityModel(PlayerPedId())
