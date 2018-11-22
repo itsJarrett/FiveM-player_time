@@ -7,3 +7,6 @@ server_scripts {
 client_scripts {
   'cl_playertime.lua'
 }
+exports {
+  'getRoleInfo'
+}
