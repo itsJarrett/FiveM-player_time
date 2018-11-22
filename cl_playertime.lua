@@ -38,8 +38,6 @@ end
 
 AddEventHandler('playerSpawned', function(spawnInfo)
   if hasRan == true then return end
-	SetDiscordRichPresenceAsset("socalrp")
-	SetDiscordAppId("501591649781022720")
   Citizen.Wait(waitTime)
 	hasRan = true
   local modelHash = GetEntityModel(PlayerPedId())
@@ -48,7 +46,6 @@ AddEventHandler('playerSpawned', function(spawnInfo)
 	local roleString = roleInfo[2]
 	currRole = role
 	drawNotification(prefix .. " Time Clock\nSuccessfully clocked in as: ~b~" .. roleString .. ".")
-	SetRichPresence("Clocked in as: " .. roleString .. ".")
 	print("Clocked in as: " .. roleString .. ".")
   TriggerServerEvent('playerTimeStart', role)
 end)
@@ -64,7 +61,6 @@ Citizen.CreateThread(function()
 			currRole = role
 			drawNotification(prefix .. " Time Clock\nWe see you have switched roles! Goodluck on your new endeavours!")
 			drawNotification(prefix .. " Time Clock\nSuccessfully clocked in as: ~b~" .. roleString .. ".")
-			SetRichPresence("Clocked in as: " .. roleString .. ".")
 			print("Clocked in as: " .. roleString .. ".")
 			TriggerServerEvent('playerTimeStart', role)
 		end
